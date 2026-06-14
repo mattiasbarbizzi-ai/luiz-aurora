@@ -172,4 +172,15 @@ hr {
   color: #b77c8a;
   font-size: 28px;
 }
+  .flower {
+  position: absolute;
+  width: 120px;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.hero, .card {
+  position: relative;
+  overflow: hidden;
+}
 }
