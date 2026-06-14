@@ -1,193 +1,168 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  font-family: "Playfair Display", serif;
-  background: #fffaf7;
-  color: #2b2b2b;
-  overflow-x: hidden;
+body{
+  font-family:"Playfair Display", serif;
+  background:#fffaf7;
+  color:#2b2b2b;
+  overflow-x:hidden;
 }
 
-/* ===== TITOLI ===== */
-h1, h2 {
-  font-family: "Allura", cursive;
+/* ===== CALLIGRAPHY ===== */
+h1,h2{
+  font-family:"Allura", cursive;
 }
 
 /* ===== INTRO ===== */
-#intro {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg, #f8e1e7, #e6f0f7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-  transition: opacity 1s ease;
+#intro{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#f8e1e7,#e6f0f7);
+  z-index:9999;
+  transition:opacity 1s ease;
 }
 
-#intro.hide {
-  opacity: 0;
-  pointer-events: none;
+#intro.hide{
+  opacity:0;
+  pointer-events:none;
 }
 
-.intro-content {
-  text-align: center;
+.intro-content h1{
+  font-size:72px;
 }
 
-.intro-content h1 {
-  font-size: 70px;
+.intro-content p{
+  font-size:20px;
 }
 
-.intro-content p {
-  font-size: 20px;
-  margin: 10px 0;
+.intro-content button{
+  margin-top:20px;
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  background:#b77c8a;
+  color:#fff;
+  cursor:pointer;
 }
 
-.intro-content button {
-  margin-top: 20px;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 30px;
-  background: #b77c8a;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* ===== SLIDESHOW ===== */
-.slideshow {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1.5s ease;
-  filter: brightness(0.7);
-}
-
-.slide.active {
-  opacity: 1;
+/* ===== PARALLAX BACKGROUND ===== */
+.parallax{
+  position:fixed;
+  inset:0;
+  background:url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e") center/cover no-repeat;
+  filter:brightness(0.6);
+  z-index:-1;
 }
 
 /* ===== HERO ===== */
-.hero {
-  text-align: center;
-  padding: 120px 20px;
+.hero{
+  text-align:center;
+  padding:140px 20px;
+  color:white;
 }
 
-.hero h1 {
-  font-size: 80px;
+.hero h1{
+  font-size:90px;
 }
 
-.hero p {
-  font-size: 22px;
+.hero p{
+  font-size:22px;
 }
 
-.date {
-  font-size: 24px;
-  font-style: italic;
+.date{
+  font-size:24px;
+  font-style:italic;
 }
 
-/* ===== CARD ===== */
-.card {
-  max-width: 900px;
-  margin: 80px auto;
-  padding: 70px 50px;
-  border-radius: 30px;
-  text-align: center;
+/* ===== CARDS ===== */
+.card{
+  max-width:900px;
+  margin:80px auto;
+  padding:80px 60px;
+  border-radius:30px;
+  text-align:center;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
 }
 
-/* ===== PASTEL SECTIONS ===== */
-.pastel-pink { background: #fff1f3; }
-.pastel-blue { background: #f1f7ff; }
-.pastel-yellow { background: #fff8e6; }
-.pastel-green { background: #f3fff5; }
-.pastel-purple { background: #f7f3ff; }
+/* ===== PASTEL ===== */
+.pastel-pink{background:#fff1f3;}
+.pastel-blue{background:#f1f7ff;}
+.pastel-yellow{background:#fff8e6;}
+.pastel-green{background:#f3fff5;}
+.pastel-purple{background:#f7f3ff;}
 
-/* ===== TEXT BIG ===== */
-h2 {
-  font-size: 56px;
+/* ===== TEXT ===== */
+h2{font-size:60px;}
+.big{font-size:32px;color:#b77c8a;}
+.story{font-size:20px;line-height:1.9;}
+
+/* ===== TIMER ===== */
+.timer span{
+  font-size:34px;
+  color:#b77c8a;
+  font-weight:bold;
 }
 
-.big {
-  font-size: 28px;
-  color: #b77c8a;
+/* ===== MAGAZINE GALLERY ===== */
+.magazine{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
 }
 
-/* ===== STORY ===== */
-.story {
-  font-size: 20px;
-  line-height: 1.9;
+.photo{
+  height:260px;
+  background:linear-gradient(135deg,#ddd,#eee);
+  border-radius:25px;
 }
 
-/* ===== GALLERY ===== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.photo {
-  height: 260px;
-  border-radius: 25px;
-  background: linear-gradient(135deg, #ddd, #eee);
-}
-
-/* ===== COUNTDOWN ===== */
-.countdown span {
-  font-size: 32px;
-  color: #b77c8a;
-  font-weight: bold;
-}
+.photo.tall{grid-row:span 2;height:540px;}
+.photo.wide{grid-column:span 2;}
 
 /* ===== PETALI ===== */
-.petals {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 5;
+.petals{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:5;
 }
 
-.petal {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: radial-gradient(circle, #f7c6d0, #f3e0e6);
-  border-radius: 50%;
-  animation: fall linear infinite;
+.petal{
+  position:absolute;
+  top:-10vh;
+  animation:fall linear infinite;
+  opacity:0.8;
 }
 
-@keyframes fall {
-  0% { transform: translateY(-10vh); opacity: 0; }
-  10% { opacity: 1; }
-  100% { transform: translateY(110vh); opacity: 0; }
+@keyframes fall{
+  0%{transform:translateY(-10vh);}
+  100%{transform:translateY(110vh);}
+}
+
+/* ===== REVEAL ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* ===== MOBILE ===== */
-@media (max-width: 600px) {
-  .hero h1 { font-size: 50px; }
-
-  h2 { font-size: 38px; }
-
-  .card {
-    margin: 40px 15px;
-    padding: 40px 25px;
-  }
-
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .intro-content h1 {
-    font-size: 50px;
-  }
+@media(max-width:600px){
+  .hero h1{font-size:55px;}
+  h2{font-size:40px;}
+  .card{padding:40px 25px;margin:40px 15px;}
+  .magazine{grid-template-columns:1fr;}
 }
