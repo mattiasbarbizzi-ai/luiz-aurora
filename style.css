@@ -1,82 +1,130 @@
-body {
+/* ===== BASE ===== */
+* {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background: #faf7f5;
-  color: #3a3a3a;
-  line-height: 1.7;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* HERO */
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  background: #fbf8f6;
+  color: #2f2f2f;
+  line-height: 1.8;
+}
+
+/* ===== HERO PREMIUM ===== */
 .hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 90px 20px;
-  background: linear-gradient(135deg, #f8e1e7, #e6f0f7);
+
+  background: linear-gradient(
+    135deg,
+    #f7e7ea 0%,
+    #e8f1f5 50%,
+    #fdf6f0 100%
+  );
 }
 
 .hero h1 {
-  font-size: 44px;
-  margin: 0;
-  font-weight: 300;
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 .hero p {
-  margin: 10px 0;
-}
-
-.date {
   font-size: 18px;
+  margin-top: 10px;
   opacity: 0.8;
 }
 
-/* CARD */
+.date {
+  margin-top: 15px;
+  font-size: 20px;
+  font-style: italic;
+}
+
+/* ===== SECTIONS ===== */
 .card {
-  max-width: 750px;
-  margin: 30px auto;
-  padding: 30px;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 50px 40px;
   background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  border-radius: 24px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+
   text-align: center;
 }
 
-/* TITOLI */
+/* titolo elegante */
 .card h2 {
+  font-size: 28px;
   font-weight: 400;
-  color: #444;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
+/* sottotitoli */
 .card h3 {
   margin-top: 25px;
   font-weight: 400;
-  color: #666;
+  color: #555;
 }
 
-/* TESTO */
+/* testo */
 .card p {
+  font-size: 17px;
   margin: 10px 0;
+  color: #444;
 }
 
-/* ORARI */
+/* evidenza orario */
 .time {
   font-size: 18px;
-  font-weight: bold;
-  color: #c48aa0;
+  color: #b77c8a;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
-/* LINK */
+/* link eleganti */
 a {
-  color: #5c86a6;
+  color: #6a8fa3;
   text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
 }
 
 a:hover {
-  text-decoration: underline;
+  border-bottom: 1px solid #6a8fa3;
 }
 
-/* MAP LINK */
+/* map link */
 .map-link {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 12px;
   font-weight: 500;
+}
+
+/* separatori */
+hr {
+  border: none;
+  height: 1px;
+  background: #eee;
+  margin: 30px 0;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .card {
+    margin: 30px 15px;
+    padding: 30px 20px;
+  }
 }
