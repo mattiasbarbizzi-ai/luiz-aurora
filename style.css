@@ -183,4 +183,112 @@ hr {
   position: relative;
   overflow: hidden;
 }
+  #inviteOverlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #f8e1e7, #e6f0f7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+
+#inviteOverlay.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.invite-card {
+  text-align: center;
+  background: rgba(255,255,255,0.8);
+  padding: 60px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.invite-card h1 {
+  font-family: "Allura", cursive;
+  font-size: 60px;
+}
+
+.invite-card button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #b77c8a;
+  color: white;
+  cursor: pointer;
+}
+  .petals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.petal {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #f7c6d0, #f3e0e6);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) translateX(40px);
+    opacity: 0;
+  }
+}
+  .gallery .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.img.placeholder {
+  height: 220px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f0e6e8, #e6eef5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* effetto magazine */
+.img.placeholder::after {
+  content: "Your photo here";
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .gallery .grid {
+    grid-template-columns: 1fr;
+  }
+}
+  .card {
+  backdrop-filter: blur(2px);
+}
+  body {
+  overflow-x: hidden;
+}
 }
