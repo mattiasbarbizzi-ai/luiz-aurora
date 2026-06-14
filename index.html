@@ -12,31 +12,21 @@
 
 <body>
 
-<!-- 🌸 PETALI PNG -->
+<!-- 🌸 PETALI -->
 <div class="petals"></div>
 
-<!-- 🎬 PARALLAX -->
-<div class="parallax">
-  <div class="layer back"></div>
-  <div class="layer mid"></div>
-  <div class="layer front"></div>
-</div>
-
-<!-- 💍 INTRO -->
+<!-- 💌 INVITO BUSTA -->
 <div id="intro">
-  <div class="intro-box">
+  <div class="envelope" id="envelope">
 
-    <svg class="signature" viewBox="0 0 600 200">
-      <path d="M20,120 C60,20 120,20 150,120
-               C180,220 220,220 250,120
-               C280,20 320,20 350,120
-               C380,220 420,220 460,120
-               C500,40 540,40 580,120"/>
-    </svg>
+    <div class="envelope-front"></div>
 
-    <p class="date-big">26 · 09 · 2026</p>
+    <div class="envelope-content">
+      <h1>Luiz & Aurora</h1>
+      <p>26 · 09 · 2026</p>
 
-    <button onclick="startSite()">Open Invitation</button>
+      <button onclick="openInvitation()">Open Invitation</button>
+    </div>
 
   </div>
 </div>
@@ -110,18 +100,23 @@
   <p>Aurora — +39 340 536 6119</p>
 </section>
 
-<!-- RSVP BUTTON -->
-<a class="rsvp-btn"
-onclick="document.querySelector('.pastel-pink iframe').scrollIntoView({behavior:'smooth'})">
-RSVP
-</a>
-
 <script>
 
-/* 💍 START */
-function startSite(){
-  document.getElementById("intro").classList.add("open");
-  setTimeout(()=>document.getElementById("intro").style.display="none",1200);
+/* 💌 APERTURA BUSTA */
+function openInvitation(){
+  const intro = document.getElementById("intro");
+  const envelope = document.getElementById("envelope");
+
+  envelope.classList.add("open");
+
+  setTimeout(()=>{
+    intro.style.opacity = "0";
+    intro.style.transform = "scale(1.1)";
+  },700);
+
+  setTimeout(()=>{
+    intro.style.display = "none";
+  },1400);
 }
 
 /* ⏳ COUNTDOWN */
@@ -139,13 +134,19 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown,60000);
 
-/* 🌸 PETALI PNG CORRETTI */
+/* 🌬️ PETALI CON VENTO REALE */
 const container = document.querySelector(".petals");
 
 const petals = [
-  "petalo1.png",
-  "petalo2.png"
+  "assets/petals/petalo1.png",
+  "assets/petals/petalo2.png"
 ];
+
+let mouseX = 0;
+
+window.addEventListener("mousemove", (e)=>{
+  mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+});
 
 for(let i=0;i<25;i++){
   const img = document.createElement("img");
@@ -153,26 +154,29 @@ for(let i=0;i<25;i++){
   img.className = "petal";
 
   img.style.left = Math.random()*100 + "vw";
-  img.style.width = (18 + Math.random()*22) + "px";
+  img.style.top = (-20 - Math.random()*100) + "vh";
+
+  img.style.width = (28 + Math.random()*35) + "px"; // +50% SIZE
   img.style.animationDuration = (6 + Math.random()*6) + "s";
-  img.style.opacity = 0.9;
 
   container.appendChild(img);
+
+  animatePetal(img);
 }
 
-/* 🎬 PARALLAX */
-window.addEventListener("scroll", () => {
-  let y = window.scrollY;
+/* vento */
+function animatePetal(el){
+  let x = parseFloat(el.style.left);
 
-  document.querySelector(".back").style.transform =
-    `translateY(${y * 0.15}px)`;
+  function frame(){
+    x += mouseX * 0.3;
+    el.style.transform = `translateX(${x}px)`;
 
-  document.querySelector(".mid").style.transform =
-    `translateY(${y * 0.3}px)`;
+    requestAnimationFrame(frame);
+  }
 
-  document.querySelector(".front").style.transform =
-    `translateY(${y * 0.45}px)`;
-});
+  frame();
+}
 
 </script>
 
