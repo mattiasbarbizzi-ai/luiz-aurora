@@ -11,69 +11,111 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== TITOLI ===== */
-h1,h2{
-  font-family:"Allura", cursive;
-}
-
-/* ===== INVITO ===== */
+/* 💍 INTRO PIÙ GRANDE E LUXURY */
 #intro{
   position:fixed;
   inset:0;
   display:flex;
   justify-content:center;
   align-items:center;
-  background:linear-gradient(135deg,#f8e1e7,#e6f0f7);
+  background:linear-gradient(135deg,#f8e1e7,#e6f0f7,#fff8e6);
   z-index:9999;
 }
 
-.paper{
+.intro-box{
   text-align:center;
+  padding:90px 70px;
   background:rgba(255,255,255,0.92);
-  padding:70px 50px;
-  border-radius:25px;
-  box-shadow:0 30px 80px rgba(0,0,0,0.15);
+  border-radius:30px;
+  box-shadow:0 40px 100px rgba(0,0,0,0.15);
 }
 
-#intro.open .paper{
-  transform:scale(0.85);
-  opacity:0;
-  transition:1.2s ease;
+.intro-box button{
+  margin-top:25px;
+  padding:14px 30px;
+  border:none;
+  border-radius:40px;
+  background:#b77c8a;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
 }
 
-/* ===== FIRMA SVG ===== */
+/* ✍️ FIRMA INK STYLE REALE */
 .signature{
-  width:320px;
-  height:120px;
-  margin-bottom:10px;
+  width:360px;
+  height:140px;
 }
 
 .signature path{
   fill:none;
   stroke:#b77c8a;
   stroke-width:3;
-  stroke-dasharray:1000;
-  stroke-dashoffset:1000;
-  animation:draw 3s ease forwards;
+  stroke-linecap:round;
+  stroke-dasharray:1200;
+  stroke-dashoffset:1200;
+  animation:draw 3.5s ease forwards;
 }
 
 @keyframes draw{
-  to{
-    stroke-dashoffset:0;
-  }
+  to{stroke-dashoffset:0;}
+}
+
+.date-big{
+  font-size:24px;
+  margin-top:10px;
+  letter-spacing:2px;
+}
+
+/* 🎬 PARALLAX */
+.parallax{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+}
+
+.layer{
+  position:absolute;
+  inset:-20%;
+  background-size:cover;
+  background-position:center;
+}
+
+.back{
+  background:url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e");
+  filter:brightness(0.5) blur(2px);
+}
+
+.mid{
+  background:url("https://images.unsplash.com/photo-1529516548873-9ce57c8f1554");
+  opacity:0.4;
+}
+
+.front{
+  background:radial-gradient(circle,rgba(255,255,255,0.15),transparent);
 }
 
 /* HERO */
 .hero{
   text-align:center;
-  padding:140px 20px;
+  padding:150px 20px;
+  color:white;
 }
 
 .hero h1{
-  font-size:90px;
+  font-size:92px;
 }
 
-/* CARDS */
+.hero p{
+  font-size:22px;
+}
+
+.date{
+  font-size:24px;
+  font-style:italic;
+}
+
+/* CARD */
 .card{
   max-width:900px;
   margin:80px auto;
@@ -93,33 +135,25 @@ h1,h2{
 
 /* TEXT */
 h2{font-size:60px;}
-.big{font-size:32px;color:#b77c8a;}
-.story{font-size:20px;line-height:1.9;}
 
-/* COUNTDOWN */
-.timer span{
+.big{
   font-size:34px;
+  color:#b77c8a;
+}
+
+.story{
+  font-size:20px;
+  line-height:1.9;
+}
+
+/* TIMER */
+.timer span{
+  font-size:36px;
   font-weight:bold;
   color:#b77c8a;
 }
 
-/* MAGAZINE */
-.magazine{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-}
-
-.photo{
-  height:260px;
-  border-radius:25px;
-  background:linear-gradient(135deg,#ddd,#eee);
-}
-
-.photo.tall{grid-row:span 2;height:540px;}
-.photo.wide{grid-column:span 2;}
-
-/* 🌸 PETALI */
+/* PETALI */
 .petals{
   position:fixed;
   inset:0;
@@ -131,7 +165,7 @@ h2{font-size:60px;}
   position:absolute;
   top:-10vh;
   animation:fall linear infinite;
-  will-change:transform;
+  opacity:0.9;
 }
 
 @keyframes fall{
@@ -151,5 +185,4 @@ h2{font-size:60px;}
   text-decoration:none;
   font-weight:bold;
   z-index:99999;
-  cursor:pointer;
 }
