@@ -12,36 +12,39 @@
 
 <body>
 
-<!-- 🌸 PETALI REALISTICI -->
+<!-- 🌸 PETALI REALISTICI (SVG — NO LINK ESTERNI) -->
 <div class="petals"></div>
 
-<!-- 💍 INVITO -->
-<div id="intro">
-  <div class="paper">
+<!-- 🎬 PARALLAX CINEMATIC -->
+<div class="parallax">
+  <div class="layer back"></div>
+  <div class="layer mid"></div>
+  <div class="layer front"></div>
+</div>
 
-    <!-- ✍️ FIRMA SVG ANIMATA -->
+<!-- 💍 INTRO LUXURY -->
+<div id="intro">
+  <div class="intro-box">
+
+    <!-- ✍️ FIRMA CALLIGRAFICA REAL INK STYLE -->
     <svg class="signature" viewBox="0 0 600 200">
-      <path id="sigPath"
-        d="M30,120
-           C80,20 120,20 150,120
-           C180,220 220,220 250,120
-           C280,20 320,20 350,120
-           C380,220 420,220 460,120
-           C490,60 520,60 560,120" />
+      <path d="M20,120
+               C60,20 120,20 150,120
+               C180,220 220,220 250,120
+               C280,20 320,20 350,120
+               C380,220 420,220 460,120
+               C500,40 540,40 580,120"/>
     </svg>
 
-    <p>26 · 09 · 2026</p>
-    <button onclick="startSite()">Open Invitation</button>
+    <p class="date-big">26 · 09 · 2026</p>
 
+    <button onclick="startSite()">Open Invitation</button>
   </div>
 </div>
 
-<!-- BACKGROUND -->
-<div class="parallax"></div>
-
 <!-- HERO -->
 <header class="hero">
-  <h1 class="signature-text">Luiz & Aurora</h1>
+  <h1>Luiz & Aurora</h1>
   <p>We’re getting married</p>
   <p class="date">Saturday 26 September 2026</p>
 </header>
@@ -98,9 +101,7 @@
   <iframe
     src="https://docs.google.com/forms/d/1-b3Myc4uqOkoiJUMZtoA6hojkdLobr6zJW5kCjiJpY8/viewform"
     width="100%"
-    height="1100"
-    frameborder="0">
-  </iframe>
+    height="1100"></iframe>
 </section>
 
 <!-- CONTACT -->
@@ -110,10 +111,10 @@
   <p>Aurora — +39 340 536 6119</p>
 </section>
 
-<!-- 📱 RSVP BUTTON -->
+<!-- RSVP BUTTON -->
 <a class="rsvp-btn"
-   onclick="document.querySelector('.pastel-pink iframe').scrollIntoView({behavior:'smooth'})">
-  RSVP
+onclick="document.querySelector('.pastel-pink iframe').scrollIntoView({behavior:'smooth'})">
+RSVP
 </a>
 
 <script>
@@ -139,26 +140,37 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown,60000);
 
-/* 🌸 PETALI REALISTICI (2 TIPI) */
+/* 🌸 PETALI SVG REALISTICI (NO IMAGE LINKS) */
 const container = document.querySelector(".petals");
 
-const petals = [
-  "https://i.ibb.co/6yT8kQJ/petal-real-1.png",
-  "https://i.ibb.co/8zR7yYF/petal-real-2.png"
-];
+const petals = ["❀","❁","✿"];
 
-for(let i=0;i<18;i++){
-  const img = document.createElement("img");
-  img.src = petals[Math.floor(Math.random()*petals.length)];
-  img.className = "petal";
+for(let i=0;i<22;i++){
+  const p = document.createElement("div");
+  p.className = "petal";
+  p.innerText = petals[Math.floor(Math.random()*petals.length)];
 
-  img.style.left = Math.random()*100 + "vw";
-  img.style.animationDuration = (7 + Math.random()*6) + "s";
-  img.style.width = (18 + Math.random()*20) + "px";
-  img.style.opacity = 0.9;
+  p.style.left = Math.random()*100 + "vw";
+  p.style.fontSize = (14 + Math.random()*16) + "px";
+  p.style.animationDuration = (6 + Math.random()*6) + "s";
+  p.style.opacity = 0.85;
 
-  container.appendChild(img);
+  container.appendChild(p);
 }
+
+/* 🎬 PARALLAX SCROLL */
+window.addEventListener("scroll", () => {
+  let y = window.scrollY;
+
+  document.querySelector(".back").style.transform =
+    `translateY(${y * 0.15}px)`;
+
+  document.querySelector(".mid").style.transform =
+    `translateY(${y * 0.3}px)`;
+
+  document.querySelector(".front").style.transform =
+    `translateY(${y * 0.45}px)`;
+});
 
 </script>
 
