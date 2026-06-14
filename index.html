@@ -12,24 +12,22 @@
 
 <body>
 
-<!-- 🌸 PETALI REALISTICI (SVG — NO LINK ESTERNI) -->
+<!-- 🌸 PETALI PNG -->
 <div class="petals"></div>
 
-<!-- 🎬 PARALLAX CINEMATIC -->
+<!-- 🎬 PARALLAX -->
 <div class="parallax">
   <div class="layer back"></div>
   <div class="layer mid"></div>
   <div class="layer front"></div>
 </div>
 
-<!-- 💍 INTRO LUXURY -->
+<!-- 💍 INTRO -->
 <div id="intro">
   <div class="intro-box">
 
-    <!-- ✍️ FIRMA CALLIGRAFICA REAL INK STYLE -->
     <svg class="signature" viewBox="0 0 600 200">
-      <path d="M20,120
-               C60,20 120,20 150,120
+      <path d="M20,120 C60,20 120,20 150,120
                C180,220 220,220 250,120
                C280,20 320,20 350,120
                C380,220 420,220 460,120
@@ -39,6 +37,7 @@
     <p class="date-big">26 · 09 · 2026</p>
 
     <button onclick="startSite()">Open Invitation</button>
+
   </div>
 </div>
 
@@ -140,25 +139,28 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown,60000);
 
-/* 🌸 PETALI SVG REALISTICI (NO IMAGE LINKS) */
+/* 🌸 PETALI PNG CORRETTI */
 const container = document.querySelector(".petals");
 
-const petals = ["❀","❁","✿"];
+const petals = [
+  "assets/petals/petalo1.png",
+  "assets/petals/petalo2.png"
+];
 
-for(let i=0;i<22;i++){
-  const p = document.createElement("div");
-  p.className = "petal";
-  p.innerText = petals[Math.floor(Math.random()*petals.length)];
+for(let i=0;i<25;i++){
+  const img = document.createElement("img");
+  img.src = petals[Math.floor(Math.random()*petals.length)];
+  img.className = "petal";
 
-  p.style.left = Math.random()*100 + "vw";
-  p.style.fontSize = (14 + Math.random()*16) + "px";
-  p.style.animationDuration = (6 + Math.random()*6) + "s";
-  p.style.opacity = 0.85;
+  img.style.left = Math.random()*100 + "vw";
+  img.style.width = (18 + Math.random()*22) + "px";
+  img.style.animationDuration = (6 + Math.random()*6) + "s";
+  img.style.opacity = 0.9;
 
-  container.appendChild(p);
+  container.appendChild(img);
 }
 
-/* 🎬 PARALLAX SCROLL */
+/* 🎬 PARALLAX */
 window.addEventListener("scroll", () => {
   let y = window.scrollY;
 
