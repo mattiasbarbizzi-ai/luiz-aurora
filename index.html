@@ -12,19 +12,19 @@
 
 <body>
 
-<!-- 🌸 PETALI PNG -->
+<!-- 🌸 PETALI -->
 <div class="petals"></div>
 
-<!-- 🎬 INTRO -->
+<!-- 💍 INVITO CARTA -->
 <div id="intro">
-  <div class="intro-content">
+  <div class="paper">
     <h1 class="handwriting">Luiz & Aurora</h1>
     <p>26 · 09 · 2026</p>
     <button onclick="startSite()">Open Invitation</button>
   </div>
 </div>
 
-<!-- BACKGROUND -->
+<!-- 🎬 BACKGROUND CINEMATICO -->
 <div class="parallax"></div>
 
 <!-- HERO -->
@@ -44,7 +44,7 @@
   </div>
 </section>
 
-<!-- CEREMONY -->
+<!-- CERIMONY -->
 <section class="card pastel-blue">
   <h2>The Ceremony</h2>
   <p class="big">11:00</p>
@@ -98,28 +98,27 @@
   <p>Aurora — +39 340 536 6119</p>
 </section>
 
-<!-- 📱 RSVP STICKY BUTTON -->
+<!-- 📱 RSVP STICKY -->
 <a href="#"
    onclick="document.querySelector('.pastel-pink iframe').scrollIntoView({behavior:'smooth'})"
    class="rsvp-btn">
    RSVP
 </a>
 
+<!-- SCRIPTS -->
 <script>
 
-/* ===== START ===== */
+/* 💍 APERTURA INVITO */
 function startSite(){
-  document.getElementById("intro").classList.add("hide");
+  const intro = document.getElementById("intro");
+  intro.classList.add("open");
+
+  setTimeout(()=>{
+    intro.style.display = "none";
+  },1200);
 }
 
-/* ===== HANDWRITING ANIMATION ===== */
-window.addEventListener("load", () => {
-  document.querySelectorAll(".handwriting").forEach(el => {
-    el.classList.add("write");
-  });
-});
-
-/* ===== COUNTDOWN ===== */
+/* ⏳ COUNTDOWN */
 const wedding = new Date("2026-09-26T11:00:00").getTime();
 
 function updateCountdown(){
@@ -139,23 +138,32 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown, 60000);
 
-/* ===== REALISTIC PETALS PNG ===== */
+/* ✨ SCROLL REVEAL */
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("reveal");
+    }
+  });
+},{threshold:0.15});
+
+cards.forEach(c=>observer.observe(c));
+
+/* 🌸 PETALI NATURALI */
 const container = document.querySelector(".petals");
 
-const petalImages = [
-  "https://i.ibb.co/6bP5YgZ/petal1.png",
-  "https://i.ibb.co/7jY9QZx/petal2.png",
-  "https://i.ibb.co/3kYpF7J/petal3.png"
-];
-
-for(let i=0;i<25;i++){
-  const p = document.createElement("img");
-  p.src = petalImages[Math.floor(Math.random()*petalImages.length)];
+for(let i=0;i<45;i++){
+  const p = document.createElement("div");
   p.classList.add("petal");
 
+  p.innerHTML = "❀";
+
   p.style.left = Math.random()*100 + "vw";
-  p.style.animationDuration = (6+Math.random()*6)+"s";
-  p.style.width = (15+Math.random()*20)+"px";
+  p.style.animationDuration = (6 + Math.random()*8) + "s";
+  p.style.fontSize = (10 + Math.random()*18) + "px";
+  p.style.animationDelay = Math.random()*5 + "s";
 
   container.appendChild(p);
 }
