@@ -161,4 +161,15 @@ hr {
   .card h2 {
     font-size: 38px;
   }
+  .countdown #timer {
+  font-size: 22px;
+  margin-top: 20px;
+  color: #444;
+}
+
+.countdown span {
+  font-weight: bold;
+  color: #b77c8a;
+  font-size: 28px;
+}
 }
