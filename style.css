@@ -6,13 +6,19 @@
 }
 
 body {
-  font-family: "Georgia", "Times New Roman", serif;
-  background: #fbf8f6;
+  font-family: "Playfair Display", serif;
+  background: #fffaf7;
   color: #2f2f2f;
   line-height: 1.8;
 }
 
-/* ===== HERO PREMIUM ===== */
+/* ===== TITOLI ELEGANTI (ALLURA STYLE) ===== */
+h1, h2 {
+  font-family: "Allura", cursive;
+  font-weight: normal;
+}
+
+/* ===== HERO ===== */
 .hero {
   height: 90vh;
   display: flex;
@@ -21,95 +27,119 @@ body {
   align-items: center;
   text-align: center;
 
-  background: linear-gradient(
-    135deg,
-    #f7e7ea 0%,
-    #e8f1f5 50%,
-    #fdf6f0 100%
-  );
+  background: linear-gradient(135deg, #f8e1e7, #e6f0f7);
 }
 
 .hero h1 {
-  font-size: 56px;
-  font-weight: 400;
-  letter-spacing: 1px;
+  font-size: 72px;
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 10px;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .date {
   margin-top: 15px;
-  font-size: 20px;
+  font-size: 22px;
   font-style: italic;
 }
 
-/* ===== SECTIONS ===== */
+/* ===== SEZIONI BASE ===== */
 .card {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 50px 40px;
-  background: #ffffff;
-  border-radius: 24px;
+  max-width: 850px;
+  margin: 70px auto;
+  padding: 60px 50px;
+  border-radius: 28px;
 
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.07);
 
   text-align: center;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
 }
 
-/* titolo elegante */
+/* quando diventa visibile */
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== COLORI PASTELLO PER SEZIONI ===== */
+.card:nth-of-type(1) {
+  background: #fff1f3; /* rosa */
+}
+
+.card:nth-of-type(2) {
+  background: #f1f7ff; /* azzurro */
+}
+
+.card:nth-of-type(3) {
+  background: #fff8e6; /* giallo */
+}
+
+.card:nth-of-type(4) {
+  background: #f3fff5; /* verde soft */
+}
+
+.card:nth-of-type(5) {
+  background: #f7f3ff; /* lilla */
+}
+
+.card:nth-of-type(6) {
+  background: #ffffff; /* contatti */
+}
+
+/* ===== TITOLI SEZIONI ===== */
 .card h2 {
-  font-size: 28px;
-  font-weight: 400;
+  font-size: 52px;
   margin-bottom: 20px;
-  letter-spacing: 1px;
 }
 
 /* sottotitoli */
 .card h3 {
-  margin-top: 25px;
+  font-size: 24px;
   font-weight: 400;
-  color: #555;
+  margin-top: 25px;
+  color: #444;
 }
 
 /* testo */
 .card p {
-  font-size: 17px;
-  margin: 10px 0;
+  font-size: 18px;
   color: #444;
+  margin: 10px 0;
 }
 
-/* evidenza orario */
+/* orari */
 .time {
-  font-size: 18px;
+  font-size: 20px;
   color: #b77c8a;
   font-weight: 500;
-  margin-bottom: 10px;
 }
 
-/* link eleganti */
+/* link */
 a {
-  color: #6a8fa3;
+  color: #5c86a6;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
   transition: 0.3s;
 }
 
 a:hover {
-  border-bottom: 1px solid #6a8fa3;
+  opacity: 0.7;
 }
 
 /* map link */
 .map-link {
   display: inline-block;
-  margin-top: 12px;
+  margin-top: 15px;
   font-weight: 500;
 }
 
-/* separatori */
+/* separatore */
 hr {
   border: none;
   height: 1px;
@@ -117,14 +147,18 @@ hr {
   margin: 30px 0;
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 @media (max-width: 600px) {
   .hero h1 {
-    font-size: 38px;
+    font-size: 48px;
   }
 
   .card {
-    margin: 30px 15px;
-    padding: 30px 20px;
+    margin: 40px 15px;
+    padding: 35px 25px;
+  }
+
+  .card h2 {
+    font-size: 38px;
   }
 }
