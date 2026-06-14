@@ -12,6 +12,14 @@
 </head>
 
 <body>
+  <div class="petals"></div>
+  <div id="inviteOverlay">
+  <div class="invite-card">
+    <h1>Luiz & Aurora</h1>
+    <p>We invite you to celebrate our wedding</p>
+    <button onclick="openInvite()">Open Invitation</button>
+  </div>
+</div>
 
   <!-- HERO -->
   <header class="hero">
@@ -21,6 +29,17 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Flower_icon.svg" class="flower" style="top:10px; left:10px;">
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Flower_icon.svg" class="flower" style="bottom:10px; right:10px;">
   </header>
+
+  <section class="card gallery">
+  <h2>Our Moments</h2>
+
+  <div class="grid">
+    <div class="img placeholder"></div>
+    <div class="img placeholder"></div>
+    <div class="img placeholder"></div>
+    <div class="img placeholder"></div>
+  </div>
+</section>
 
   <section class="card countdown">
   <h2>Countdown to the wedding</h2>
@@ -175,6 +194,25 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 60000);
+</script>
+  <script>
+function openInvite() {
+  document.getElementById("inviteOverlay").classList.add("hide");
+}
+</script>
+  <script>
+const petalContainer = document.querySelector(".petals");
+
+for (let i = 0; i < 25; i++) {
+  const petal = document.createElement("div");
+  petal.classList.add("petal");
+
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+  petal.style.opacity = Math.random();
+
+  petalContainer.appendChild(petal);
+}
 </script>
 </body>
 </html>
