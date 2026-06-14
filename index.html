@@ -112,6 +112,22 @@
     <p><strong>Aurora Barbizzi</strong><br>
     +39 340 536 6119</p>
   </section>
+<script>
+const cards = document.querySelectorAll('.card');
 
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+cards.forEach(card => {
+  observer.observe(card);
+});
+</script>
 </body>
 </html>
