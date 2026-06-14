@@ -1,91 +1,87 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luiz & Aurora</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<title>Luiz & Aurora</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- 🌸 PETALI -->
+<!-- 🌸 PETALI SVG -->
 <div class="petals"></div>
 
-<!-- 🎬 INTRO CINEMATOGRAFICO -->
+<!-- 🎬 INTRO CINEMATICA -->
 <div id="intro">
   <div class="intro-content">
     <h1>Luiz & Aurora</h1>
     <p>26 · 09 · 2026</p>
-    <button onclick="startExperience()">Enter Invitation</button>
+    <button onclick="startSite()">Open Invitation</button>
   </div>
 </div>
 
-<!-- 🎞 SLIDESHOW -->
-<div class="slideshow">
-  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e');"></div>
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1529516548873-9ce57c8f1554');"></div>
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed');"></div>
-</div>
+<!-- 🎞 PARALLAX SLIDESHOW -->
+<div class="parallax"></div>
 
 <!-- HERO -->
-<header class="hero">
-  <h1>Luiz & Aurora</h1>
+<header class="hero reveal">
+  <h1 class="calligraphy">Luiz & Aurora</h1>
   <p>We’re getting married</p>
-  <p class="date">Sabato 26 Settembre 2026</p>
+  <p class="date">Saturday 26 September 2026</p>
 </header>
 
-<!-- COUNTDOWN -->
-<section class="card countdown pastel-pink">
+<!-- ⏳ COUNTDOWN -->
+<section class="card pastel-pink reveal">
   <h2>Countdown</h2>
-  <div id="timer">
-    <span id="days"></span> days
-    <span id="hours"></span> hours
-    <span id="minutes"></span> minutes
+  <div class="timer">
+    <span id="days"></span>d
+    <span id="hours"></span>h
+    <span id="minutes"></span>m
   </div>
 </section>
 
-<!-- CERIMONIA -->
-<section class="card pastel-blue">
+<!-- CERIMONY -->
+<section class="card pastel-blue reveal">
   <h2>The Ceremony</h2>
   <p class="big">11:00</p>
   <p>Chiesa di S. Antonio di Padova</p>
 </section>
 
-<!-- CELEBRAZIONE -->
-<section class="card pastel-yellow">
+<!-- CELEBRATION -->
+<section class="card pastel-yellow reveal">
   <h2>The Celebration</h2>
   <p class="big">Afternoon</p>
   <p>Villa Incanto</p>
 </section>
 
 <!-- STORY -->
-<section class="card pastel-green">
+<section class="card pastel-green reveal">
   <h2>Our Love Story</h2>
   <p class="story">
-    In 2021, Aurora came to Dublin for Erasmus, Luiz was already there.
-    They met, they got along, and never stopped.
-    Four years later, they are still together and getting married.
+    In 2021, Aurora arrived in Dublin for Erasmus.
+    Luiz was already there.
+    They met, stayed together, and never left each other again.
   </p>
 </section>
 
 <!-- GALLERY -->
-<section class="card pastel-purple">
-  <h2>Our Moments</h2>
+<section class="card pastel-purple reveal">
+  <h2>Moments</h2>
 
-  <div class="gallery">
+  <div class="magazine">
     <div class="photo"></div>
+    <div class="photo tall"></div>
     <div class="photo"></div>
-    <div class="photo"></div>
-    <div class="photo"></div>
+    <div class="photo wide"></div>
   </div>
 </section>
 
 <!-- RSVP -->
-<section class="card pastel-pink">
+<section class="card pastel-pink reveal">
   <h2>RSVP</h2>
 
   <iframe
@@ -97,60 +93,68 @@
 </section>
 
 <!-- CONTACT -->
-<section class="card pastel-blue">
+<section class="card pastel-blue reveal">
   <h2>Contact</h2>
-  <p>Luiz de Sá — +353 830 869 654</p>
-  <p>Aurora Barbizzi — +39 340 536 6119</p>
+  <p>Luiz — +353 830 869 654</p>
+  <p>Aurora — +39 340 536 6119</p>
 </section>
 
+<!-- SCRIPTS -->
 <script>
-/* ===== INTRO ===== */
-function startExperience() {
+
+/* ===== START EXPERIENCE ===== */
+function startSite() {
   document.getElementById("intro").classList.add("hide");
 }
 
-/* ===== SLIDESHOW ===== */
-let index = 0;
-const slides = document.querySelectorAll(".slide");
-
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 4000);
-
 /* ===== COUNTDOWN ===== */
-const weddingDate = new Date("2026-09-26T11:00:00").getTime();
+const wedding = new Date("2026-09-26T11:00:00").getTime();
 
-function updateCountdown() {
+function updateCountdown(){
   const now = new Date().getTime();
-  const diff = weddingDate - now;
+  const diff = wedding - now;
 
   document.getElementById("days").innerText =
-    Math.floor(diff / (1000 * 60 * 60 * 24));
+    Math.floor(diff / 86400000);
 
   document.getElementById("hours").innerText =
-    Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    Math.floor((diff % 86400000)/3600000);
 
   document.getElementById("minutes").innerText =
-    Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    Math.floor((diff % 3600000)/60000);
 }
 
 updateCountdown();
 setInterval(updateCountdown, 60000);
 
-/* ===== PETALI ===== */
-window.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".petals");
+/* ===== SCROLL REVEAL ===== */
+const reveals = document.querySelectorAll(".reveal");
 
-  for (let i = 0; i < 35; i++) {
-    const p = document.createElement("div");
-    p.classList.add("petal");
-    p.style.left = Math.random() * 100 + "vw";
-    p.style.animationDuration = (5 + Math.random() * 5) + "s";
-    container.appendChild(p);
-  }
-});
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("active");
+    }
+  });
+},{threshold:0.15});
+
+reveals.forEach(r=>observer.observe(r));
+
+/* ===== PETALI SVG ===== */
+const container = document.querySelector(".petals");
+
+for(let i=0;i<35;i++){
+  const p = document.createElement("div");
+  p.classList.add("petal");
+  p.innerHTML = "❀";
+
+  p.style.left = Math.random()*100 + "vw";
+  p.style.animationDuration = (6+Math.random()*6)+"s";
+  p.style.fontSize = (10+Math.random()*10)+"px";
+
+  container.appendChild(p);
+}
+
 </script>
 
 </body>
