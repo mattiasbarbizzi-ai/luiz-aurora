@@ -11,12 +11,12 @@ body{
   overflow-x:hidden;
 }
 
-/* 💍 TITOLI */
+/* ===== TITOLI ===== */
 h1,h2{
   font-family:"Allura", cursive;
 }
 
-/* 💍 INVITO */
+/* ===== INVITO ===== */
 #intro{
   position:fixed;
   inset:0;
@@ -33,41 +33,44 @@ h1,h2{
   padding:70px 50px;
   border-radius:25px;
   box-shadow:0 30px 80px rgba(0,0,0,0.15);
-  transition:all 1.2s ease;
 }
 
 #intro.open .paper{
-  transform:scale(0.85) rotateX(20deg);
+  transform:scale(0.85);
   opacity:0;
+  transition:1.2s ease;
 }
 
-/* 🎬 BACKGROUND */
-.parallax{
-  position:fixed;
-  inset:0;
-  background:url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e") center/cover no-repeat;
-  filter:brightness(0.6);
-  z-index:-1;
+/* ===== FIRMA SVG ===== */
+.signature{
+  width:320px;
+  height:120px;
+  margin-bottom:10px;
+}
+
+.signature path{
+  fill:none;
+  stroke:#b77c8a;
+  stroke-width:3;
+  stroke-dasharray:1000;
+  stroke-dashoffset:1000;
+  animation:draw 3s ease forwards;
+}
+
+@keyframes draw{
+  to{
+    stroke-dashoffset:0;
+  }
 }
 
 /* HERO */
 .hero{
   text-align:center;
   padding:140px 20px;
-  color:white;
 }
 
 .hero h1{
   font-size:90px;
-}
-
-.hero p{
-  font-size:22px;
-}
-
-.date{
-  font-size:24px;
-  font-style:italic;
 }
 
 /* CARDS */
@@ -79,18 +82,9 @@ h1,h2{
   text-align:center;
   background:rgba(255,255,255,0.9);
   backdrop-filter:blur(10px);
-
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 1s ease;
 }
 
-.card.reveal{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* 🌸 PASTEL */
+/* PASTEL */
 .pastel-pink{background:#fff1f3;}
 .pastel-blue{background:#f1f7ff;}
 .pastel-yellow{background:#fff8e6;}
@@ -99,25 +93,17 @@ h1,h2{
 
 /* TEXT */
 h2{font-size:60px;}
+.big{font-size:32px;color:#b77c8a;}
+.story{font-size:20px;line-height:1.9;}
 
-.big{
-  font-size:32px;
-  color:#b77c8a;
-}
-
-.story{
-  font-size:20px;
-  line-height:1.9;
-}
-
-/* TIMER */
+/* COUNTDOWN */
 .timer span{
   font-size:34px;
   font-weight:bold;
   color:#b77c8a;
 }
 
-/* GALLERY */
+/* MAGAZINE */
 .magazine{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -144,7 +130,6 @@ h2{font-size:60px;}
 .petal{
   position:absolute;
   top:-10vh;
-  opacity:0.9;
   animation:fall linear infinite;
   will-change:transform;
 }
@@ -154,7 +139,7 @@ h2{font-size:60px;}
   100%{transform:translateY(110vh) rotate(360deg);}
 }
 
-/* 📱 RSVP BUTTON */
+/* RSVP BUTTON */
 .rsvp-btn{
   position:fixed;
   bottom:20px;
@@ -166,13 +151,5 @@ h2{font-size:60px;}
   text-decoration:none;
   font-weight:bold;
   z-index:99999;
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* MOBILE */
-@media(max-width:600px){
-  .hero h1{font-size:55px;}
-  h2{font-size:40px;}
-  .card{padding:40px 25px;margin:40px 15px;}
-  .magazine{grid-template-columns:1fr;}
+  cursor:pointer;
 }
