@@ -8,10 +8,6 @@
   <link rel="stylesheet" href="style.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
 </head>
 
 <body>
@@ -19,13 +15,20 @@
 <!-- 🌸 PETALI -->
 <div class="petals"></div>
 
-<!-- 🎬 INVITO -->
-<div id="inviteOverlay">
-  <div class="invite-card">
+<!-- 🎬 INTRO CINEMATOGRAFICO -->
+<div id="intro">
+  <div class="intro-content">
     <h1>Luiz & Aurora</h1>
-    <p>We invite you to celebrate our wedding</p>
-    <button onclick="openInvite()">Open Invitation</button>
+    <p>26 · 09 · 2026</p>
+    <button onclick="startExperience()">Enter Invitation</button>
   </div>
+</div>
+
+<!-- 🎞 SLIDESHOW -->
+<div class="slideshow">
+  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e');"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1529516548873-9ce57c8f1554');"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed');"></div>
 </div>
 
 <!-- HERO -->
@@ -33,27 +36,11 @@
   <h1>Luiz & Aurora</h1>
   <p>We’re getting married</p>
   <p class="date">Sabato 26 Settembre 2026</p>
-
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Flower_icon.svg" class="flower" style="top:20px; left:20px;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Flower_icon.svg" class="flower" style="bottom:20px; right:20px;">
 </header>
 
-<!-- 📸 GALLERY -->
-<section class="card gallery">
-  <h2>Our Moments</h2>
-
-  <div class="grid">
-    <div class="img placeholder"></div>
-    <div class="img placeholder"></div>
-    <div class="img placeholder"></div>
-    <div class="img placeholder"></div>
-  </div>
-</section>
-
-<!-- ⏳ COUNTDOWN -->
-<section class="card countdown">
-  <h2>Countdown to the wedding</h2>
-
+<!-- COUNTDOWN -->
+<section class="card countdown pastel-pink">
+  <h2>Countdown</h2>
   <div id="timer">
     <span id="days"></span> days
     <span id="hours"></span> hours
@@ -62,55 +49,77 @@
 </section>
 
 <!-- CERIMONIA -->
-<section class="card">
+<section class="card pastel-blue">
   <h2>The Ceremony</h2>
-  <p class="time">11:00</p>
+  <p class="big">11:00</p>
   <p>Chiesa di S. Antonio di Padova</p>
 </section>
 
-<!-- CELEBRATION -->
-<section class="card">
+<!-- CELEBRAZIONE -->
+<section class="card pastel-yellow">
   <h2>The Celebration</h2>
-  <p class="time">Afternoon</p>
+  <p class="big">Afternoon</p>
   <p>Villa Incanto</p>
 </section>
 
 <!-- STORY -->
-<section class="card">
+<section class="card pastel-green">
   <h2>Our Love Story</h2>
-  <p>
+  <p class="story">
     In 2021, Aurora came to Dublin for Erasmus, Luiz was already there.
-    They met, they got along, and stayed together ever since.
+    They met, they got along, and never stopped.
+    Four years later, they are still together and getting married.
   </p>
 </section>
 
+<!-- GALLERY -->
+<section class="card pastel-purple">
+  <h2>Our Moments</h2>
+
+  <div class="gallery">
+    <div class="photo"></div>
+    <div class="photo"></div>
+    <div class="photo"></div>
+    <div class="photo"></div>
+  </div>
+</section>
+
 <!-- RSVP -->
-<section class="card">
+<section class="card pastel-pink">
   <h2>RSVP</h2>
 
   <iframe
     src="https://docs.google.com/forms/d/1-b3Myc4uqOkoiJUMZtoA6hojkdLobr6zJW5kCjiJpY8/viewform"
     width="100%"
-    height="1200"
+    height="1100"
     frameborder="0">
   </iframe>
 </section>
 
 <!-- CONTACT -->
-<section class="card">
-  <h2>Contact us</h2>
-
-  <p>Luiz de Sá - +353 830 869 654</p>
-  <p>Aurora Barbizzi - +39 340 536 6119</p>
+<section class="card pastel-blue">
+  <h2>Contact</h2>
+  <p>Luiz de Sá — +353 830 869 654</p>
+  <p>Aurora Barbizzi — +39 340 536 6119</p>
 </section>
 
-<!-- JS -->
 <script>
-function openInvite() {
-  document.getElementById("inviteOverlay").classList.add("hide");
+/* ===== INTRO ===== */
+function startExperience() {
+  document.getElementById("intro").classList.add("hide");
 }
 
-/* countdown */
+/* ===== SLIDESHOW ===== */
+let index = 0;
+const slides = document.querySelectorAll(".slide");
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 4000);
+
+/* ===== COUNTDOWN ===== */
 const weddingDate = new Date("2026-09-26T11:00:00").getTime();
 
 function updateCountdown() {
@@ -130,18 +139,15 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 60000);
 
-/* petals */
+/* ===== PETALI ===== */
 window.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".petals");
 
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 35; i++) {
     const p = document.createElement("div");
     p.classList.add("petal");
-
     p.style.left = Math.random() * 100 + "vw";
     p.style.animationDuration = (5 + Math.random() * 5) + "s";
-    p.style.opacity = Math.random();
-
     container.appendChild(p);
   }
 });
