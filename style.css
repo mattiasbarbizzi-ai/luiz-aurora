@@ -1,27 +1,82 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  background: #fafafa;
-  color: #333;
-  line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #faf7f5;
+  color: #3a3a3a;
+  line-height: 1.7;
 }
 
+/* HERO */
 .hero {
   text-align: center;
-  padding: 80px 20px;
-  background: #f2e9e4;
+  padding: 90px 20px;
+  background: linear-gradient(135deg, #f8e1e7, #e6f0f7);
 }
 
-section {
-  max-width: 800px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-h1, h2 {
+.hero h1 {
+  font-size: 44px;
+  margin: 0;
   font-weight: 300;
 }
 
-h1 {
-  font-size: 40px;
+.hero p {
+  margin: 10px 0;
+}
+
+.date {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* CARD */
+.card {
+  max-width: 750px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+/* TITOLI */
+.card h2 {
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin-top: 25px;
+  font-weight: 400;
+  color: #666;
+}
+
+/* TESTO */
+.card p {
+  margin: 10px 0;
+}
+
+/* ORARI */
+.time {
+  font-size: 18px;
+  font-weight: bold;
+  color: #c48aa0;
+}
+
+/* LINK */
+a {
+  color: #5c86a6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* MAP LINK */
+.map-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 500;
 }
