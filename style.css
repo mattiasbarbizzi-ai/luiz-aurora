@@ -36,6 +36,30 @@ body{
 }
 
 /* ========================================= */
+/* 💌 INTRO OVERLAY */
+/* ========================================= */
+
+#intro{
+  position:fixed;
+  inset:0;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:linear-gradient(
+    135deg,
+    #f8e1e7,
+    #e6f0f7,
+    #fff8e6
+  );
+
+  z-index:99999;
+
+  transition:opacity 1s ease;
+}
+
+/* ========================================= */
 /* 💌 ENVELOPE */
 /* ========================================= */
 
@@ -49,7 +73,7 @@ body{
 
   perspective:1800px;
 
-  overflow:hidden; /* 🔥 BLOCCA USCITE DAL BASSO */
+  overflow:hidden;
 
   z-index:10;
 }
@@ -88,32 +112,24 @@ body{
   text-align:right;
 
   z-index:4;
-
-  pointer-events:none;
 }
 
 .envelope-signature h1{
   font-family:"Allura", cursive;
-
   font-size:34px;
-
   margin:0;
-
   color:#7f5a68;
 }
 
 .envelope-signature p{
   margin:0;
-
   font-size:12px;
-
   letter-spacing:2px;
-
   color:#666;
 }
 
 /* ========================================= */
-/* 📩 LEMBO SUPERIORE */
+/* 📩 FLAP */
 /* ========================================= */
 
 .envelope-flap{
@@ -132,59 +148,64 @@ body{
 
   transition:transform 1.3s ease;
 
-  backface-visibility:hidden;
-
   z-index:3;
 }
 
-/* testo leggero sul lembo */
 .flap-content{
   position:absolute;
-
   top:28px;
   left:50%;
-
   transform:translateX(-50%);
-
   text-align:center;
-  width:100%;
 }
 
 .flap-content span{
   font-size:13px;
-
-  color:#777;
-
-  opacity:.8;
   letter-spacing:2px;
+  color:#777;
+  opacity:.8;
 }
 
 /* ========================================= */
-/* 📜 LETTERA INTERNA */
+/* 📜 LETTERA (TASCA TRIANGOLARE) */
 /* ========================================= */
 
 .letter{
   position:absolute;
 
   width:88%;
-  height:220px;
+  height:260px;
 
   left:6%;
   bottom:0;
 
-  overflow:hidden; /* 🔥 blocca qualsiasi fuoriuscita */
+  overflow:hidden;
 
   z-index:1;
 }
 
+/* forma geometrica tasca */
+.letter-shape{
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  clip-path:polygon(50% 0%, 100% 100%, 0% 100%);
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+}
+
 /* ========================================= */
-/* 📜 CARTA */
+/* 📄 CARTA */
 /* ========================================= */
 
 .letter-inner{
   position:absolute;
 
-  width:100%;
+  width:80%;
   height:100%;
 
   background:white;
@@ -199,11 +220,11 @@ body{
 
   padding:35px;
 
-  transform:translateY(240px); /* 🔥 completamente nascosta */
+  transform:translateY(120%);
 
-  transition:transform 1.4s ease;
+  transition:transform 1.6s cubic-bezier(.22,1,.36,1);
 
-  z-index:2;
+  z-index:1;
 }
 
 .invite-text{
@@ -214,22 +235,15 @@ body{
 }
 
 /* ========================================= */
-/* 💥 STATO APERTURA */
+/* 💥 OPEN STATE */
 /* ========================================= */
 
-/* flap si apre verso l’alto */
 .envelope.open .envelope-flap{
   transform:rotateX(-180deg);
 }
 
-/* carta SALE SOLO dall’alto */
 .envelope.open .letter-inner{
-  transform:translateY(-130px);
-}
-
-/* layering sicuro durante animazione */
-.envelope.open .letter{
-  z-index:9999;
+  transform:translateY(-20%);
 }
 
 /* ========================================= */
@@ -245,10 +259,6 @@ body{
 
   .envelope-signature h1{
     font-size:28px;
-  }
-
-  .letter{
-    height:180px;
   }
 
   .invite-text{
