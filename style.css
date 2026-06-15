@@ -43,17 +43,12 @@ transform 1s ease;
 /* ================================= */
 
 .envelope{
-
-position:relative;
-
-width:420px;
-height:290px;
-
-cursor:pointer;
-
-perspective:1800px;
-
-transition:transform .4s ease;
+  position:relative;
+  width:420px;
+  height:290px;
+  cursor:pointer;
+  perspective:1800px;
+  z-index:10; /* importante */
 }
 
 .envelope:hover{
