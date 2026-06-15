@@ -15,7 +15,7 @@
 <!-- 🌸 PETALI -->
 <div class="petals"></div>
 
-<!-- 💌 INVITO BUSTA -->
+<!-- 💌 INTRO BUSTA -->
 <div id="intro">
   <div class="envelope" id="envelope">
 
@@ -71,18 +71,6 @@
   </p>
 </section>
 
-<!-- GALLERY -->
-<section class="card pastel-purple">
-  <h2>Moments</h2>
-
-  <div class="magazine">
-    <div class="photo"></div>
-    <div class="photo tall"></div>
-    <div class="photo"></div>
-    <div class="photo wide"></div>
-  </div>
-</section>
-
 <!-- RSVP -->
 <section class="card pastel-pink">
   <h2>RSVP</h2>
@@ -102,7 +90,7 @@
 
 <script>
 
-/* 💌 APERTURA BUSTA */
+/* 💌 OPEN ENVELOPE */
 function openInvitation(){
   const intro = document.getElementById("intro");
   const envelope = document.getElementById("envelope");
@@ -111,12 +99,12 @@ function openInvitation(){
 
   setTimeout(()=>{
     intro.style.opacity = "0";
-    intro.style.transform = "scale(1.1)";
-  },700);
+    intro.style.transform = "scale(1.05)";
+  },800);
 
   setTimeout(()=>{
     intro.style.display = "none";
-  },1400);
+  },1500);
 }
 
 /* ⏳ COUNTDOWN */
@@ -134,7 +122,7 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown,60000);
 
-/* 🌬️ PETALI CON VENTO REALE */
+/* 🌸 PETALI REALISTICI CON VENTO + GRAVITÀ */
 const container = document.querySelector(".petals");
 
 const petals = [
@@ -143,34 +131,50 @@ const petals = [
 ];
 
 let mouseX = 0;
+let wind = 0;
 
 window.addEventListener("mousemove", (e)=>{
   mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
 });
 
-for(let i=0;i<25;i++){
+/* crea petali */
+for(let i=0;i<30;i++){
   const img = document.createElement("img");
   img.src = petals[Math.floor(Math.random()*petals.length)];
   img.className = "petal";
 
   img.style.left = Math.random()*100 + "vw";
-  img.style.top = (-20 - Math.random()*100) + "vh";
+  img.style.top = (-100 - Math.random()*500) + "px";
 
-  img.style.width = (28 + Math.random()*35) + "px"; // +50% SIZE
-  img.style.animationDuration = (6 + Math.random()*6) + "s";
+  img.style.width = (30 + Math.random()*40) + "px"; /* FIX +50% reale */
+  img.style.opacity = 0.9;
 
   container.appendChild(img);
 
   animatePetal(img);
 }
 
-/* vento */
+/* 🌬️ FISICA PETALI */
 function animatePetal(el){
+
   let x = parseFloat(el.style.left);
+  let y = parseFloat(el.style.top);
+  let speedY = 1 + Math.random()*2;
+  let drift = Math.random()*1;
 
   function frame(){
-    x += mouseX * 0.3;
-    el.style.transform = `translateX(${x}px)`;
+
+    y += speedY;
+
+    /* vento progressivo */
+    x += mouseX * 1.2 + Math.sin(y/80) * drift;
+
+    if(y > window.innerHeight + 100){
+      y = -100;
+      x = Math.random()*100;
+    }
+
+    el.style.transform = `translate(${x}px, ${y}px)`;
 
     requestAnimationFrame(frame);
   }
