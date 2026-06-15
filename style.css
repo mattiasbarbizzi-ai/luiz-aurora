@@ -12,255 +12,293 @@ body{
 }
 
 /* ================================= */
-/* INTRO */
+/* 💌 INTRO OVERLAY */
 /* ================================= */
 
 #intro{
-  position:fixed;
-  inset:0;
+position:fixed;
+inset:0;
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+display:flex;
+justify-content:center;
+align-items:center;
 
-  background:
-  linear-gradient(
-    135deg,
-    #f8e1e7,
-    #e6f0f7,
-    #fff8e6
-  );
+background:
+linear-gradient(
+135deg,
+#f8e1e7 0%,
+#e6f0f7 50%,
+#fff8e6 100%
+);
 
-  z-index:99999;
+z-index:99999;
 
-  transition:all 1s ease;
+transition:
+opacity 1s ease,
+transform 1s ease;
 }
 
 /* ================================= */
-/* ENVELOPE */
+/* 💌 ENVELOPE */
 /* ================================= */
 
 .envelope{
 
-  position:relative;
+position:relative;
 
-  width:380px;
-  height:260px;
+width:420px;
+height:290px;
 
-  cursor:pointer;
+cursor:pointer;
 
-  perspective:1800px;
+perspective:1800px;
+
+transition:transform .4s ease;
+}
+
+.envelope:hover{
+transform:translateY(-4px);
 }
 
 /* ================================= */
-/* LETTER */
+/* 📄 LETTER CONTAINER */
 /* ================================= */
 
 .letter{
 
-  position:absolute;
+position:absolute;
 
-  width:88%;
-  height:190px;
+width:88%;
+height:200px;
 
-  left:6%;
+left:6%;
+top:45px;
 
-  top:40px;
+overflow:hidden;
 
-  overflow:hidden;
-
-  z-index:1;
+z-index:1;
 }
+
+/* ================================= */
+/* 📄 LETTER */
+/* ================================= */
 
 .letter-inner{
 
-  width:100%;
-  height:100%;
+width:100%;
+height:100%;
 
-  background:white;
+background:white;
 
-  border-radius:10px;
+border-radius:12px;
 
-  box-shadow:
-  0 10px 30px rgba(0,0,0,.1);
+box-shadow:
+0 15px 35px rgba(0,0,0,.12);
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 
-  padding:30px;
+padding:35px;
 
-  transform:translateY(170px);
+transform:translateY(190px);
 
-  transition:transform 1.4s ease;
+transition:
+transform 1.4s ease;
+
+text-align:center;
 }
 
 .invite-text{
 
-  text-align:center;
+font-size:18px;
 
-  font-size:18px;
+color:#666;
 
-  color:#666;
+line-height:1.8;
 }
 
 /* ================================= */
-/* BODY */
+/* 💌 BODY */
 /* ================================= */
 
 .envelope-body{
 
-  position:absolute;
+position:absolute;
 
-  inset:0;
+inset:0;
 
-  background:
-  linear-gradient(
-    135deg,
-    #f5dbe2,
-    #ece8f8
-  );
+border-radius:16px;
 
-  border-radius:14px;
+background:
+linear-gradient(
+135deg,
+#f4dde3,
+#ece8f8
+);
 
-  box-shadow:
-  0 25px 70px rgba(0,0,0,.18);
+box-shadow:
+0 25px 70px rgba(0,0,0,.18);
 
-  z-index:2;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-
-/* NOMI VISIBILI SULLA BUSTA */
-
-.envelope-names{
-
-  font-family:"Allura", cursive;
-
-  font-size:56px;
-
-  color:#8c6572;
-}
-
-.envelope-date{
-
-  margin-top:8px;
-
-  letter-spacing:4px;
-
-  color:#777;
-}
-
-.tap-text{
-
-  margin-top:18px;
-
-  font-size:14px;
-
-  opacity:.6;
+z-index:2;
 }
 
 /* ================================= */
-/* FLAP */
+/* 💌 FLAP */
 /* ================================= */
 
 .envelope-flap{
 
-  position:absolute;
+position:absolute;
 
-  inset:0;
+inset:0;
 
-  background:
-  linear-gradient(
-    135deg,
-    #efd3db,
-    #e4e1f6
-  );
+clip-path:
+polygon(
+0 0,
+100% 0,
+50% 58%
+);
 
-  clip-path:
-  polygon(
-    0 0,
-    100% 0,
-    50% 58%
-  );
+background:
+linear-gradient(
+135deg,
+#efd3db,
+#e5e2f6
+);
 
-  z-index:3;
+z-index:3;
 
-  transform-origin:
-  center top;
+transform-origin:center top;
 
-  transition:
-  transform 1.2s ease;
+transition:
+transform 1.3s ease;
 
-  backface-visibility:hidden;
+backface-visibility:hidden;
 }
 
 /* ================================= */
-/* OPEN */
+/* ✨ TEXT ON FLAP */
 /* ================================= */
-
-.envelope.open .envelope-flap{
-
-  transform:
-  rotateX(-180deg);
-}
-
-.envelope.open .letter-inner{
-
-  transform:
-  translateY(30px);
-}
 
 .flap-content{
 
-  position:absolute;
+position:absolute;
 
-  top:25px;
-  left:50%;
+top:28px;
+left:50%;
 
-  transform:
-  translateX(-50%);
+transform:translateX(-50%);
 
-  text-align:center;
+text-align:center;
 
-  width:100%;
+width:100%;
 }
 
 .flap-content h1{
 
-  font-family:"Allura", cursive;
+font-family:"Allura", cursive;
 
-  font-size:46px;
+font-size:58px;
 
-  color:#8c6572;
+line-height:1;
 
-  margin:0;
+color:#8b6573;
+
+margin:0;
 }
 
 .flap-content p{
 
-  margin-top:4px;
+margin-top:10px;
 
-  font-size:14px;
+font-size:15px;
 
-  letter-spacing:3px;
+letter-spacing:4px;
 
-  color:#666;
+color:#666;
 }
 
 .flap-content span{
 
-  display:block;
+display:block;
 
-  margin-top:12px;
+margin-top:14px;
 
-  font-size:12px;
+font-size:13px;
 
-  opacity:.7;
+letter-spacing:2px;
+
+color:#777;
+
+opacity:.8;
 }
+
+/* ================================= */
+/* 💍 OPEN STATE */
+/* ================================= */
+
+.envelope.open .envelope-flap{
+
+transform:
+rotateX(-180deg);
+}
+
+.envelope.open .letter-inner{
+
+transform:
+translateY(35px);
+}
+
+/* ================================= */
+/* 📱 MOBILE */
+/* ================================= */
+
+@media(max-width:600px){
+
+.envelope{
+
+```
+width:340px;
+height:240px;
+```
+
+}
+
+.flap-content h1{
+
+```
+font-size:46px;
+```
+
+}
+
+.flap-content p{
+
+```
+font-size:13px;
+```
+
+}
+
+.letter{
+
+```
+height:170px;
+```
+
+}
+
+.invite-text{
+
+```
+font-size:16px;
+```
+
+}
+
+}
+
 
 /* HERO */
 .hero{
