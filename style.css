@@ -211,7 +211,7 @@ body{
 .envelope.open .letter-inner{
 
   transform:
-  translateY(0);
+  translateY(30px);
 }
 
 .flap-content{
