@@ -64,7 +64,8 @@ body{
   height:190px;
 
   left:6%;
-  bottom:20px;
+
+  top:40px;
 
   overflow:hidden;
 
@@ -89,7 +90,7 @@ body{
 
   padding:30px;
 
-  transform:translateY(140px);
+  transform:translateY(170px);
 
   transition:transform 1.4s ease;
 }
@@ -211,6 +212,54 @@ body{
 
   transform:
   translateY(0);
+}
+
+.flap-content{
+
+  position:absolute;
+
+  top:25px;
+  left:50%;
+
+  transform:
+  translateX(-50%);
+
+  text-align:center;
+
+  width:100%;
+}
+
+.flap-content h1{
+
+  font-family:"Allura", cursive;
+
+  font-size:46px;
+
+  color:#8c6572;
+
+  margin:0;
+}
+
+.flap-content p{
+
+  margin-top:4px;
+
+  font-size:14px;
+
+  letter-spacing:3px;
+
+  color:#666;
+}
+
+.flap-content span{
+
+  display:block;
+
+  margin-top:12px;
+
+  font-size:12px;
+
+  opacity:.7;
 }
 
 /* HERO */
