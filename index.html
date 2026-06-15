@@ -122,66 +122,84 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown,60000);
 
-/* 🌸 PETALI REALISTICI CON VENTO + GRAVITÀ */
+/* 🌸 PETALI ELEGANTI */
+
 const container = document.querySelector(".petals");
 
 const petals = [
-  "petalo1.png",
-  "petalo2.png"
+  "assets/petals/petalo1.png",
+  "assets/petals/petalo2.png"
 ];
 
-let mouseX = 0;
-let wind = 0;
+function createPetal(){
 
-window.addEventListener("mousemove", (e)=>{
-  mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-});
+  const petal = document.createElement("img");
 
-/* crea petali */
-for(let i=0;i<30;i++){
-  const img = document.createElement("img");
-  img.src = petals[Math.floor(Math.random()*petals.length)];
-  img.className = "petal";
+  petal.src = petals[Math.floor(Math.random()*petals.length)];
+  petal.classList.add("petal");
 
-  img.style.left = Math.random()*100 + "vw";
-  img.style.top = (-100 - Math.random()*500) + "px";
+  const size = 40 + Math.random()*25;
 
-  img.style.width = (30 + Math.random()*40) + "px"; /* FIX +50% reale */
-  img.style.opacity = 0.9;
+  let x = Math.random() * window.innerWidth;
+  let y = -100;
 
-  container.appendChild(img);
+  let speedY = 0.7 + Math.random()*0.8;
+  let swing = 0.5 + Math.random()*1.2;
+  let rotation = Math.random()*360;
 
-  animatePetal(img);
-}
+  petal.style.width = size + "px";
 
-/* 🌬️ FISICA PETALI */
-function animatePetal(el){
+  container.appendChild(petal);
 
-  let x = parseFloat(el.style.left);
-  let y = parseFloat(el.style.top);
-  let speedY = 1 + Math.random()*2;
-  let drift = Math.random()*1;
-
-  function frame(){
+  function animate(){
 
     y += speedY;
 
-    /* vento progressivo */
-    x += mouseX * 1.2 + Math.sin(y/80) * drift;
+    x += Math.sin(y/80) * swing;
 
-    if(y > window.innerHeight + 100){
-      y = -100;
-      x = Math.random()*100;
+    rotation += 0.3;
+
+    let opacity = 1;
+
+    /* comparsa morbida */
+    if(y < 100){
+      opacity = y/100;
     }
 
-    el.style.transform = `translate(${x}px, ${y}px)`;
+    /* dissolvenza finale */
+    if(y > window.innerHeight - 150){
+      opacity = Math.max(
+        0,
+        (window.innerHeight + 100 - y)/250
+      );
+    }
 
-    requestAnimationFrame(frame);
+    petal.style.opacity = opacity;
+
+    petal.style.transform =
+      `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+
+    if(y < window.innerHeight + 120){
+      requestAnimationFrame(animate);
+    }
+    else{
+      petal.remove();
+    }
   }
 
-  frame();
+  animate();
 }
 
+/* solo pochi petali alla volta */
+setInterval(() => {
+
+  if(document.querySelectorAll(".petal").length < 5){
+
+    createPetal();
+
+  }
+
+}, 2500);
 </script>
 
 </body>
