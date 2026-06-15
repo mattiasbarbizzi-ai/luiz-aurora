@@ -117,25 +117,28 @@
 
 function openInvitation(){
 
-  const intro =
-    document.getElementById("intro");
+const intro =
+document.getElementById("intro");
 
-  const envelope =
-    document.getElementById("envelope");
+const envelope =
+document.getElementById("envelope");
 
-  envelope.classList.add("open");
+envelope.classList.add("open");
 
-  setTimeout(()=>{
+/* attendo che l'invito salga */
 
-    intro.style.opacity="0";
+setTimeout(()=>{
 
-  },1800);
+intro.style.opacity="0";
 
-  setTimeout(()=>{
+},2600);
 
-    intro.style.display="none";
+setTimeout(()=>{
 
-  },2800);
+intro.style.display="none";
+
+},3600);
+
 }
 
 /* ⏳ COUNTDOWN */
