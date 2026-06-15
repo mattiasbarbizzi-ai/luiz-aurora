@@ -120,33 +120,7 @@ line-height:1.8;
 /* ================================= */
 
 .envelope-flap{
-
-position:absolute;
-
-inset:0;
-
-clip-path:
-polygon(
-0 0,
-100% 0,
-50% 58%
-);
-
-background:
-linear-gradient(
-135deg,
-#efd3db,
-#e5e2f6
-);
-
-z-index:3;
-
-transform-origin:center top;
-
-transition:
-transform 1.3s ease;
-
-backface-visibility:hidden;
+  z-index:3;
 }
 
 /* ================================= */
