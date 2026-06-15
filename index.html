@@ -105,19 +105,26 @@
 
 /* 💌 OPEN ENVELOPE */
 function openInvitation(){
-  const intro = document.getElementById("intro");
-  const envelope = document.getElementById("envelope");
+
+  const intro =
+    document.getElementById("intro");
+
+  const envelope =
+    document.getElementById("envelope");
 
   envelope.classList.add("open");
 
   setTimeout(()=>{
+
     intro.style.opacity = "0";
-    intro.style.transform = "scale(1.05)";
-  },800);
+
+  },1800);
 
   setTimeout(()=>{
+
     intro.style.display = "none";
-  },1500);
+
+  },2800);
 }
 
 /* ⏳ COUNTDOWN */
