@@ -191,12 +191,8 @@ rotateX(-180deg);
 }
 
 .envelope.open .letter-inner{
-
-transform:
-translateY(-80px);
-
-box-shadow:
-0 25px 60px rgba(0,0,0,.15);
+  transform:translateY(-120px);
+  z-index:999;
 }
 
 /* ================================= */
