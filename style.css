@@ -11,9 +11,9 @@ body{
   color:#2b2b2b;
 }
 
-/* ====================================== */
+/* ===================================== */
 /* INTRO */
-/* ====================================== */
+/* ===================================== */
 
 #intro{
   position:fixed;
@@ -23,51 +23,72 @@ body{
   justify-content:center;
   align-items:center;
 
-  background:linear-gradient(
+  background:
+  linear-gradient(
     135deg,
-    #fdf0f3,
-    #eef6fd,
-    #fff9e9
+    #fdecef,
+    #eef7ff,
+    #fff8e7
   );
 
-  z-index:9999;
+  z-index:99999;
 
   transition:opacity 1.2s ease;
 }
 
-/* ====================================== */
+/* ===================================== */
 /* BUSTA */
-/* ====================================== */
+/* ===================================== */
 
 .envelope{
   position:relative;
 
-  width:460px;
-  height:320px;
+  width:520px;
+  height:360px;
 
   cursor:pointer;
 }
 
-/* ====================================== */
+/* ===================================== */
+/* RETRO */
+/* ===================================== */
+
+.envelope-back{
+  position:absolute;
+
+  width:100%;
+  height:240px;
+
+  bottom:0;
+
+  background:#f8f8f8;
+
+  border-radius:6px;
+
+  box-shadow:
+  0 25px 60px rgba(0,0,0,.15);
+
+  z-index:1;
+}
+
+/* ===================================== */
 /* LETTERA */
-/* ====================================== */
+/* ===================================== */
 
 .letter{
   position:absolute;
 
-  width:78%;
-  height:250px;
+  width:72%;
+  height:260px;
 
-  left:11%;
-  top:20px;
+  left:14%;
 
-  z-index:1;
+  bottom:110px;
 
-  display:flex;
-  justify-content:center;
+  z-index:2;
 }
 
-.letter-inner{
+.letter-card{
   width:100%;
   height:100%;
 
@@ -75,64 +96,41 @@ body{
 
   border-radius:4px;
 
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  box-shadow:
+  0 15px 35px rgba(0,0,0,.12);
 
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
 
-  text-align:center;
-
-  transform:translateY(60px);
+  transform:translateY(170px);
 
   transition:
-    transform 1.8s cubic-bezier(.19,1,.22,1);
+  transform 1.8s cubic-bezier(.22,1,.36,1);
+}
+
+.letter-content{
+  text-align:center;
 }
 
 .letter-content h2{
   font-family:"Allura",cursive;
-  font-size:48px;
-  color:#8d6675;
+  font-size:52px;
+  color:#8d6874;
   margin-bottom:10px;
 }
 
-.letter-content p{
-  color:#666;
-  margin:8px 0;
-}
-
-/* ====================================== */
-/* CORPO */
-/* ====================================== */
-
-.envelope-body{
-  position:absolute;
-
-  bottom:0;
-
-  width:100%;
-  height:220px;
-
-  background:#f8f8f8;
-
-  border-radius:4px;
-
-  box-shadow:0 15px 40px rgba(0,0,0,.15);
-
-  z-index:3;
-}
-
-/* ====================================== */
+/* ===================================== */
 /* TASCA FRONTALE */
-/* ====================================== */
+/* ===================================== */
 
 .envelope-pocket{
   position:absolute;
 
-  bottom:0;
-
   width:100%;
-  height:220px;
+  height:240px;
+
+  bottom:0;
 
   background:#fcfcfc;
 
@@ -144,42 +142,40 @@ body{
     0 100%
   );
 
-  border-radius:4px;
-
-  z-index:4;
+  z-index:3;
 }
 
-/* ====================================== */
+/* ===================================== */
 /* FIRMA */
-/* ====================================== */
+/* ===================================== */
 
 .envelope-signature{
   position:absolute;
 
-  right:24px;
-  bottom:18px;
+  right:30px;
+  bottom:25px;
 
   font-family:"Allura",cursive;
-  font-size:34px;
+  font-size:38px;
 
   color:#96717e;
 
-  z-index:5;
+  z-index:4;
 }
 
-/* ====================================== */
-/* FLAP */
-/* ====================================== */
+/* ===================================== */
+/* LEMBO */
+/* ===================================== */
 
 .envelope-flap{
   position:absolute;
 
-  top:0;
-
   width:100%;
   height:180px;
 
-  background:#f4f4f4;
+  top:0;
+
+  background:#f3f3f3;
 
   clip-path:polygon(
     0 100%,
@@ -190,26 +186,28 @@ body{
   transform-origin:top center;
 
   transition:
-    transform 1.2s ease;
+  transform 1.2s ease;
 
-  z-index:6;
+  z-index:5;
 }
 
-/* ====================================== */
+/* ===================================== */
 /* OPEN */
-/* ====================================== */
+/* ===================================== */
 
 .envelope.open .envelope-flap{
-  transform:rotateX(180deg);
+  transform:
+  rotateX(180deg);
 }
 
-.envelope.open .letter-inner{
-  transform:translateY(-90px);
+.envelope.open .letter-card{
+  transform:
+  translateY(20px);
 }
 
-/* ====================================== */
+/* ===================================== */
 /* MOBILE */
-/* ====================================== */
+/* ===================================== */
 
 @media(max-width:600px){
 
@@ -218,17 +216,18 @@ body{
     height:250px;
   }
 
-  .envelope-body,
+  .envelope-back,
   .envelope-pocket{
     height:170px;
   }
 
   .letter{
-    height:190px;
+    height:180px;
+    bottom:70px;
   }
 
   .letter-content h2{
-    font-size:38px;
+    font-size:40px;
   }
 
   .envelope-signature{
