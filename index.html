@@ -116,29 +116,25 @@
 
 function openInvitation(){
 
-const intro =
-document.getElementById("intro");
+  const envelope =
+    document.querySelector(".envelope");
 
-const envelope =
-document.getElementById("envelope");
+  envelope.classList.add("open");
 
-envelope.classList.add("open");
+  setTimeout(() => {
 
-/* attendo che l'invito salga */
+    const intro =
+      document.getElementById("intro");
 
-setTimeout(()=>{
+    intro.style.opacity = "0";
 
-intro.style.opacity="0";
+    setTimeout(() => {
+      intro.style.display = "none";
+    }, 1200);
 
-},2600);
-
-setTimeout(()=>{
-
-intro.style.display="none";
-
-},3600);
-
+  }, 1800);
 }
+</script>
 
 /* ⏳ COUNTDOWN */
 const wedding = new Date("2026-09-26T11:00:00").getTime();
