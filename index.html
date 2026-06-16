@@ -121,26 +121,33 @@
 
 <script>
 
+<script>
+
 function openInvitation(){
 
   const envelope =
-    document.querySelector(".envelope");
+  document.querySelector(".envelope");
 
   envelope.classList.add("open");
 
   setTimeout(() => {
 
     const intro =
-      document.getElementById("intro");
+    document.getElementById("intro");
 
-    intro.style.opacity = "0";
+    intro.style.opacity="0";
 
     setTimeout(() => {
-      intro.style.display = "none";
-    }, 1200);
 
-  }, 1800);
+      intro.style.display="none";
+
+    },1200);
+
+  },2200);
+
 }
+
+
 </script>
 
 /* ⏳ COUNTDOWN */
