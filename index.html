@@ -124,6 +124,15 @@ function openInvitation(){
 
   envelope.classList.add("open");
 
+  /* quando il lembo è quasi aperto */
+  setTimeout(()=>{
+
+    document
+      .querySelector(".letter")
+      .classList.add("front");
+
+  },700);
+
   setTimeout(()=>{
 
     const intro =
@@ -135,7 +144,7 @@ function openInvitation(){
       intro.style.display="none";
     },1200);
 
-  },2200);
+  },2500);
 
 }
 
