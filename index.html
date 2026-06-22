@@ -116,12 +116,14 @@ function openInvitation(){
 
   envelope.classList.add("open");
 
-  /* quando il lembo è quasi aperto */
-  setTimeout(() => {
-  document
-    .querySelector(".letter")
-    .classList.add("front");
-}, 600);
+  /* quando il lembo è aperto,
+     va dietro al biglietto */
+
+  setTimeout(()=>{
+
+    envelope.classList.add("flap-open");
+
+  },700);
 
   setTimeout(()=>{
 
@@ -131,7 +133,9 @@ function openInvitation(){
     intro.style.opacity="0";
 
     setTimeout(()=>{
+
       intro.style.display="none";
+
     },1200);
 
   },2500);
