@@ -204,7 +204,7 @@ body{
 /* quando il lembo è aperto */
 
 .envelope.flap-open .envelope-flap{
-  z-index:1;
+  z-index:0;
 }
 /* CARDS */
 .card{
