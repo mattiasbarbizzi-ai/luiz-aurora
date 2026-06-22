@@ -206,6 +206,12 @@ body{
 .envelope.flap-open .envelope-flap{
   z-index:0;
 }
+
+.envelope.flap-open .envelope-back{
+  z-index:0;
+}
+
+
 /* CARDS */
 .card{
   max-width:900px;
