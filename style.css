@@ -222,7 +222,7 @@ body{
   -webkit-mask-position:center;
   -webkit-mask-size:contain;
 
-  mask-image:url("flower-mask.png");
+  mask-image:url("mask.png");
   mask-repeat:no-repeat;
   mask-position:center;
   mask-size:contain;
