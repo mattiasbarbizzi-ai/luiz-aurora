@@ -6,7 +6,7 @@
 
 body{
   font-family:"Playfair Display", serif;
-  background-image: url("wall2.png");
+  background-image: url("wall1.png");
   background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -460,10 +460,10 @@ body{
 }
 
 /* PASTEL */
-.pastel-pink{background-image: url("wall2.png");}
-.pastel-blue{background-image: url("wall3.png");}
-.pastel-yellow{background-image: url("wall4.png");}
-.pastel-green{background-image: url("wall5.png");}
+.pastel-pink{background-image: url("wall0.png");}
+.pastel-blue{background-image: url("wall2.png");}
+.pastel-yellow{background-image: url("wall3.png");}
+.pastel-green{background-image: url("wall4.png");}
 
 /* TEXT */
 h2{font-size:60px;}
