@@ -9,6 +9,7 @@ body{
   background-image: url("wall1.png");
   background-repeat:no-repeat;
   background-size: cover;
+  backgorund-attachment:fixed;
   overflow-x:hidden;
   color:#2b2b2b;
 }
