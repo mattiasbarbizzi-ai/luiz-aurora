@@ -6,7 +6,7 @@
 
 body{
   font-family:"Playfair Display", serif;
-  background:#fffaf7;
+  background-image: url("wall1.png");
   overflow-x:hidden;
   color:#2b2b2b;
 }
@@ -463,10 +463,10 @@ body{
 }
 
 /* PASTEL */
-.pastel-pink{background:#fff1f3;}
-.pastel-blue{background:#f1f7ff;}
-.pastel-yellow{background:#fff8e6;}
-.pastel-green{background:#f3fff5;}
+.pastel-pink{background-image: url("wall2.png");}
+.pastel-blue{background-image: url("wall13png");}
+.pastel-yellow{background-image: url("wall4.png");}
+.pastel-green{background-image: url("wall5.png");}
 
 /* TEXT */
 h2{font-size:60px;}
