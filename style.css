@@ -7,9 +7,10 @@
 body{
   font-family:"Playfair Display", serif;
   background-image: url("wall1.png");
-  background-repeat:no-repeat;
-  background-size: cover;
-  backgorund-attachment:fixed;
+  background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
   overflow-x:hidden;
   color:#2b2b2b;
 }
