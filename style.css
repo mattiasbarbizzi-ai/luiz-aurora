@@ -564,9 +564,17 @@ body{
 .pastel-green{background-image: url("wall4.png");}
 
 /* TEXT */
-h2{font-size:60px;}
-.big{font-size:34px;color:#b77c8a;}
-.story{font-size:20px;line-height:1.9;}
+h2{
+  font-size:60px;
+}
+.big{
+  font-size:34px;
+  color:#b77c8a;
+}
+.story{
+  font-size:20px;
+  line-height:1.9;
+}
 
 /* COUNTDOWN */
 .timer span{
