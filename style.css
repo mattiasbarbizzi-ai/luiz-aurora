@@ -565,7 +565,8 @@ body{
 
 /* TEXT */
 h2{
-  font-size:60px;
+  font-size:90px;
+  font-family: "Allura", cursive;
 }
 .big{
   font-size:34px;
