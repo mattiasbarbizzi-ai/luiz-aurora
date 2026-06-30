@@ -461,12 +461,13 @@ body{
 
 .card p{
   font-size: 30px;
-  color:#686c7b;
+  color:#648ab1
 }
 
 .card h3{
-  font-size: 65px;
-  color:#686c7b;
+  font-size: 80px;
+  color:#648ab1
+  font-family: "Allura", cursive;
 }
 
 .location-button{
@@ -481,7 +482,7 @@ body{
 
     text-decoration:none;
 
-    color:#8f6875;
+    color:#648ab1
     font-size:20px;
     font-weight:600;
 
