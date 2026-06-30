@@ -459,6 +459,10 @@ body{
   background:rgba(255,255,255,0.9);
 }
 
+.card p{
+  font-size: 30px;
+}
+
 /* PASTEL */
 .pastel-pink{background-image: url("wall0.png");}
 .pastel-blue{background-image: url("wall2.png");}
