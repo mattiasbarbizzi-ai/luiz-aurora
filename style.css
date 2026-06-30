@@ -463,6 +463,10 @@ body{
   font-size: 30px;
 }
 
+.card h3{
+  font-size: 80px;
+}
+
 /* PASTEL */
 .pastel-pink{background-image: url("wall0.png");}
 .pastel-blue{background-image: url("wall2.png");}
